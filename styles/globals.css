@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent 50%);
+  pointer-events: none;
+}
+
+.changing-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 2rem;
+}
+
+.status-tag {
+  transition: all 0.3s ease;
+}
+
+.status-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.hero p {
+  opacity: 0.9;
+}
+
+.hero span[class*="bg-"] {
+  transition: transform 0.2s ease;
+}
+
+.hero span[class*="bg-"]:hover {
+  transform: rotate(0deg) !important;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.wave-emoji {
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+} 
